@@ -1,0 +1,73 @@
+.add {
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.add > form {
+  width: 300px;
+  height: 70vh;
+  overflow-y: auto;
+}
+
+.add > form > h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.div_add {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.div_add > label {
+  width: 90%;
+  margin-left: 10px;
+}
+
+.div_add > input {
+  width: 90%;
+  margin-left: 10px;
+  border-bottom: 1px solid rgba(2, 15, 123, 1);
+  color: rgba(2, 15, 123, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
+.div_add > select {
+  width: 90%;
+  margin-left: 10px;
+  border: 2px solid rgba(2, 15, 123, 1);
+  color: rgba(2, 15, 123, 1);
+}
+
+.div_add > label > input {
+  width: 90%;
+  margin-left: 10px;
+  border: 2px solid rgba(2, 15, 123, 1);
+  color: rgba(2, 15, 123, 1);
+}
+
+.div_add_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div_add_btn > button {
+  width: 100px;
+  background-color: rgba(2, 15, 123, 1);
+  color: white;
+  height: 20px;
+  height: 30px;
+  margin-top: 40px;
+  border: none;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-bottom: 15px;
+}

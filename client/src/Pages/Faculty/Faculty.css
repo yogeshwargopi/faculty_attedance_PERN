@@ -1,0 +1,24 @@
+.principal {
+  background-color: rgba(2, 14, 123, 0.203);
+  padding: 10px 10px;
+  height: 100%;
+  color: rgba(2, 15, 123, 1);
+}
+
+.fa_content {
+  width: 100%;
+  background-color: white;
+  height: 85vh;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.user {
+  font-size: 35px;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.user_college {
+  font-size: 16px;
+}

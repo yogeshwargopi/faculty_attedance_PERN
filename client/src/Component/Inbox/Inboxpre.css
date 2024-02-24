@@ -1,0 +1,23 @@
+.inbox_pre {
+  margin: 20px;
+}
+.inbox_title {
+  padding-top: 20px;
+}
+.inbox_icons {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.inbox_icons > button {
+  background-color: transparent;
+  border: none;
+  color: rgba(2, 15, 123, 1);
+  margin-right: 10px;
+}
+
+.inbox_mess {
+  margin-top: 20px;
+  overflow-y: auto;
+  height: 55vh;
+}
