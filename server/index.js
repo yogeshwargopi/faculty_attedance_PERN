@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const db = require("./db");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
-const { Client } = require("pg");
 const salt = 10;
 
 const fs = require("fs");
@@ -487,7 +486,7 @@ app.get("/hrdetails", async (req, res) => {
     const faculty = await db.query("SELECT * FROM hr");
     res.json(faculty.rows);
   } catch (error) {
-    console.error("Error fetching users:", error);
+    //console.error("Error fetching users:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -570,7 +569,7 @@ app.post("/leave-application", async (req, res) => {
       }, timeDifferenceMillis);
     }
   } catch (error) {
-    console.error("Error submitting leave application:", error);
+    //console.error("Error submitting leave application:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -582,7 +581,7 @@ app.get("/leave-application", async (req, res) => {
     );
     res.json(users.rows);
   } catch (error) {
-    console.error("Error fetching users:", error);
+    //console.error("Error fetching users:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -594,7 +593,7 @@ app.get("/hr/leave-application", async (req, res) => {
     );
     res.json(users.rows);
   } catch (error) {
-    console.error("Error fetching users:", error);
+    //console.error("Error fetching users:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -618,14 +617,14 @@ app.get("/leave-application/:department", async (req, res) => {
       });
     }
   } catch (error) {
-    console.error("Error fetching leave applications:", error);
+    //console.error("Error fetching leave applications:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
 app.get("/sent/:leave_id", async (req, res) => {
   const leave_id = req.params.leave_id;
-  console.log(leave_id);
+  //console.log(leave_id);
   try {
     const query = {
       text: "SELECT * FROM leave_application WHERE leave_id = $1",
@@ -643,7 +642,7 @@ app.get("/sent/:leave_id", async (req, res) => {
       res.status(404).json({ error: "User not found" });
     }
   } catch (error) {
-    console.error(error);
+    //console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -668,7 +667,7 @@ app.get("/inbox/:leave_id", async (req, res) => {
       res.status(404).json({ error: "User not found" });
     }
   } catch (error) {
-    console.error(error);
+    //console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -688,7 +687,7 @@ app.put("/hod/approve/:leave_id", async (req, res) => {
     const result = await db.query(updateQuery, [leaveId]);
     res.json({ status: "success", leave: result.rows[0] });
   } catch (error) {
-    console.error("Error approving leave:", error);
+    //console.error("Error approving leave:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -709,7 +708,7 @@ app.put("/hod/reject/:leave_id", async (req, res) => {
     const result = await db.query(updateQuery, [leaveId]);
     res.json({ status: "success", leave: result.rows[0] });
   } catch (error) {
-    console.error("Error rejecting leave:", error);
+    //console.error("Error rejecting leave:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -729,7 +728,7 @@ app.put("/principal/approve/:leave_id", async (req, res) => {
     const result = await db.query(updateQuery, [leaveId]);
     res.json({ status: "success", leave: result.rows[0] });
   } catch (error) {
-    console.error("Error approving leave:", error);
+    //console.error("Error approving leave:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -750,7 +749,7 @@ app.put("/principal/reject/:leave_id", async (req, res) => {
     const result = await db.query(updateQuery, [leaveId]);
     res.json({ status: "success", leave: result.rows[0] });
   } catch (error) {
-    console.error("Error rejecting leave:", error);
+    //console.error("Error rejecting leave:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -775,14 +774,14 @@ app.get("/faculty/sent/:facultyId", async (req, res) => {
       });
     }
   } catch (error) {
-    console.error("Error fetching leave applications:", error);
+    //console.error("Error fetching leave applications:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
 app.get("/faculty/send/:facultyId", async (req, res) => {
   const userEmail = req.params.facultyId;
-  console.log(userEmail);
+  //console.log(userEmail);
   try {
     const query = {
       text: "SELECT * FROM leave_application WHERE faculty_id = $1",
@@ -793,7 +792,7 @@ app.get("/faculty/send/:facultyId", async (req, res) => {
 
     if (result && result.rows.length > 0) {
       const user = result.rows[0];
-      console.log("User Data:", user);
+      //console.log("User Data:", user);
       res.json(user);
     } else {
       res.status(404).json({ error: "User not found" });
@@ -846,7 +845,7 @@ app.get("/myprofile/:role/:id", async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
   }
-  console.log(Role);
+  //console.log(Role);
 });
 
 const PORT = process.env.PORT || 8080;
